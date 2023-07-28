@@ -1,0 +1,44 @@
+Master Message Recieved: {"from":"Aeskul","payload":"hey!","time":"2023 07 27 18:31"}
+Master Message Recieved: {"from":"Aeskul","payload":"hey!","time":"2023 07 27 18:37"}
+Master Message Recieved: {"from":"Aeskul","payload":"hey!","time":"2023 07 27 18:41"}
+Master Message Recieved: {"from":"Aeskul","payload":"hey!","time":"2023 07 27 18:44"}
+Master Message Recieved: {"from":"Aeskul","payload":"howdy","time":"2023 07 27 18:44"}
+Master Message Recieved: {"from":"Aeskul","payload":"very cool","time":"2023 07 27 18:44"}
+Master Message Recieved: {"from":"Bl--","payload":"hey","time":"2023 07 27 18:44"}
+Master Message Recieved: {"from":"Aeskul","payload":"hey there mr bl--","time":"2023 07 27 18:44"}
+Master Message Recieved: {"from":"Aeskul","payload":"how's it going?","time":"2023 07 27 18:44"}
+Master Message Recieved: {"from":"Bl--","payload":"been good","time":"2023 07 27 18:45"}
+Master Message Recieved: {"from":"Bl--","payload":"could be better though","time":"2023 07 27 18:45"}
+Master Message Recieved: {"from":"Aeskul","payload":"ok i have to head out","time":"2023 07 27 18:45"}
+Master Message Recieved: {"from":"Aeskul","payload":"farwell","time":"2023 07 27 18:45"}
+Master Message Recieved: {"from":"Bl--","payload":"bye!","time":"2023 07 27 18:45"}
+Master Message Recieved: {"from":"Bl--","payload":"ye ye","time":"2023 07 27 18:45"}
+Master Message Recieved: {"from":"Felli","payload":"dfasdfuhasdf","time":"2023 07 27 18:57"}
+Master Message Recieved: {"from":"Felli","payload":"dfasdf","time":"2023 07 27 18:57"}
+Master Message Recieved: {"from":"Felli","payload":"asdfsdfas","time":"2023 07 27 18:57"}
+Master Message Recieved: {"from":"Felli","payload":"dfasd","time":"2023 07 27 18:57"}
+Master Message Recieved: {"from":"Felli","payload":"f","time":"2023 07 27 18:57"}
+Master Message Recieved: {"from":"Felli","payload":"aefe","time":"2023 07 27 18:57"}
+Master Message Recieved: {"from":"Felli","payload":"fae ","time":"2023 07 27 18:57"}
+Master Message Recieved: {"from":"Felli","payload":"faef","time":"2023 07 27 18:57"}
+Master Message Recieved: {"from":"Aeskul","payload":"hey!","time":"2023 07 27 18:57"}
+Master Message Recieved: {"from":"Felli","payload":"ae","time":"2023 07 27 18:57"}
+Master Message Recieved: {"from":"Felli","payload":"asefasefhase fuioaesh fae","time":"2023 07 27 18:57"}
+Master Message Recieved: {"from":"Felli","payload":"asefiuahes flauiefh a","time":"2023 07 27 18:57"}
+Master Message Recieved: {"from":"Felli","payload":"Hi","time":"2023 07 27 18:57"}
+Master Message Recieved: {"from":"Aeskul","payload":":3","time":"2023 07 27 18:57"}
+Master Message Recieved: {"from":"Felli","payload":":3c","time":"2023 07 27 18:57"}
+Master Message Recieved: {"from":"Aeskul","payload":"this is very cool","time":"2023 07 27 18:57"}
+Master Message Recieved: {"from":"Felli","payload":"Yes","time":"2023 07 27 18:57"}
+Master Message Recieved: {"from":"Aeskul","payload":"that it worked","time":"2023 07 27 18:58"}
+Master Message Recieved: {"from":"Aeskul","payload":"my 5 hours of work have paid off","time":"2023 07 27 18:58"}
+Master Message Recieved: {"from":"Felli","payload":"Only 5 hours","time":"2023 07 27 18:58"}
+Master Message Recieved: {"from":"Felli","payload":"That's not much","time":"2023 07 27 18:58"}
+Master Message Recieved: {"from":"Aeskul","payload":"yee, it wasnt *too* complicated","time":"2023 07 27 18:58"}
+Master Message Recieved: {"from":"Felli","payload":"efaefaeuyfa gefuaye gfae","time":"2023 07 27 18:58"}
+Master Message Recieved: {"from":"Aeskul","payload":"but it was still good practice with asynchronous stuff","time":"2023 07 27 18:59"}
+Master Message Recieved: {"from":"Felli","payload":"aeiufhaeifuahefiauehfaiehfaebhaeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\nasdasdassdasdsdsadasdsd\nmultiline","time":"2023 07 27 18:59"}
+Master Message Recieved: {"from":"Felli","payload":"Multiline message didn't work","time":"2023 07 27 18:59"}
+Master Message Recieved: {"from":"Aeskul","payload":"ill also have to go back through and clean up some of the stuff","time":"2023 07 27 18:59"}
+Master Message Recieved: {"from":"Felli","payload":"K I'm closing this now","time":"2023 07 27 18:59"}
+Master Message Recieved: {"from":"Aeskul","payload":"and yeah, multiline doesnt work","time":"2023 07 27 18:59"}
