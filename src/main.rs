@@ -1,12 +1,12 @@
-use std::{net::SocketAddr, sync::Arc, io::Write};
+use std::{io::Write, net::SocketAddr, sync::Arc};
 
 use tokio::{
     io::{AsyncReadExt, AsyncWriteExt},
     net::{TcpListener, TcpStream},
-    sync::mpsc::{channel, Sender, Receiver},
+    sync::mpsc::{channel, Receiver, Sender},
 };
 
-const IP: &'static str = "0.0.0.0:8080";
+const IP: &str = "0.0.0.0:8080";
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -28,7 +28,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                 println!("Incoming connection from {addr}");
                 let (tx, rx) = channel::<String>(25);
                 let tx_clone = Arc::clone(&tx_arc);
-                
+
                 tokio::spawn(async move {
                     handle_connection(stream, addr, rx, tx_clone).await;
                 });
@@ -38,7 +38,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             Some(msg) = rx_master.recv() => {
                 writeln!(f, "Master Message Recieved: {msg}")?;
                 let mut rms = vec![];
-                for (sender, idx) in senders.iter().zip(0..senders.len()) {
+                for (idx, sender) in senders.iter().enumerate() {
                     let Ok(_) = sender.send(msg.clone()).await else {
                         rms.push(idx);
                         continue;
@@ -52,7 +52,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     }
 }
 
-async fn handle_connection(mut conn: TcpStream, addr: SocketAddr, mut rx: Receiver<String>, tx_clone: Arc<Sender<String>>) {
+async fn handle_connection(
+    mut conn: TcpStream,
+    addr: SocketAddr,
+    mut rx: Receiver<String>,
+    tx_clone: Arc<Sender<String>>,
+) {
     loop {
         let mut len_buf = [0u8; 4];
         tokio::select! {
