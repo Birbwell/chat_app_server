@@ -71,7 +71,11 @@ async fn handle_connection(
                             break;
                         }
                         let msg = String::from_utf8_lossy(&msg_buf).to_string();
-                        tx_clone.send(msg).await.unwrap();
+                        if let Err(e) = tx_clone.send(msg).await {
+                            println!("ERROR: {e:?}");
+                            _ = conn.shutdown().await;
+                            return;
+                        };
                     },
                     Err(e) => {
                         eprintln!("Error reading from client: {e:?}");
@@ -83,7 +87,11 @@ async fn handle_connection(
                 let msg_len = msg.len();
                 len_buf = u32::to_be_bytes(msg_len as u32);
                 let full_msg = [&len_buf, msg.as_bytes()].concat();
-                conn.write_all(&full_msg).await.unwrap();
+                if let Err(e) = conn.write_all(&full_msg).await {
+                    eprintln!("ERROR: {e:?}");
+                    _ = conn.shutdown().await;
+                    return;
+                };
             }
         }
     }
