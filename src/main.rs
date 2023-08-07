@@ -8,7 +8,7 @@ use tokio::{
 
 use crossterm::event::{read, Event, KeyCode, KeyEvent};
 
-const IP: &str = "0.0.0.0:8080";
+const IP: &str = "0.0.0.0:42530";
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
