@@ -1,10 +1,12 @@
-use std::{io::Write, net::SocketAddr, sync::Arc};
+use std::{io::Write, net::SocketAddr, sync::Arc, time::Duration};
 
 use tokio::{
     io::{AsyncReadExt, AsyncWriteExt},
     net::{TcpListener, TcpStream},
     sync::mpsc::{channel, Receiver, Sender},
 };
+
+use crossterm::event::{read, Event, KeyCode, KeyEvent};
 
 const IP: &str = "0.0.0.0:8080";
 
@@ -18,9 +20,19 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let listener = TcpListener::bind(IP).await?;
     println!("Listening on {IP}");
 
+    let mut check = tokio::task::spawn_blocking(|| {
+        loop {
+            if let Ok(Event::Key(KeyEvent { code: KeyCode::Esc, .. })) = read() {
+                return
+            }
+            std::thread::sleep(Duration::from_millis(1));
+        }
+    });
+
     let (tx_master, mut rx_master) = channel::<String>(25);
     let tx_arc = Arc::new(tx_master);
     let mut senders = vec![];
+    let mut tasks = vec![];
 
     loop {
         tokio::select! {
@@ -29,14 +41,14 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                 let (tx, rx) = channel::<String>(25);
                 let tx_clone = Arc::clone(&tx_arc);
 
-                tokio::spawn(async move {
+                tasks.push((tokio::spawn(async move {
                     handle_connection(stream, addr, rx, tx_clone).await;
-                });
+                }), addr));
 
                 senders.push(tx);
             },
             Some(msg) = rx_master.recv() => {
-                writeln!(f, "Master Message Recieved: {msg}")?;
+                writeln!(f, "Message Recieved: {msg}")?;
                 let mut rms = vec![];
                 for (idx, sender) in senders.iter().enumerate() {
                     let Ok(_) = sender.send(msg.clone()).await else {
@@ -47,7 +59,17 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                 for r in rms {
                     senders.remove(r);
                 }
-            }
+            },
+            _ = &mut check => {
+                for task in tasks {
+                    if !task.0.is_finished() {
+                        task.0.abort();
+                        println!("Connection from {} has been closed", task.1);
+                    }
+                    println!("Server shutting down");
+                }
+                break Ok(());
+            },
         }
     }
 }
@@ -96,5 +118,5 @@ async fn handle_connection(
         }
     }
 
-    println!("Connection from {addr} has terminated");
+    println!("Connection from {addr} has been closed");
 }

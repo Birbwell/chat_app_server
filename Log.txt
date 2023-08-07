@@ -1,35 +1,19 @@
-Master Message Recieved: {"from":"Aes","payload":"hey!","time":"2023 07 29 10:04"}
-Master Message Recieved: {"from":"Aes","payload":"how\ndo\nyou\ndo?","time":"2023 07 29 10:04"}
-Master Message Recieved: {"from":"Aes","payload":"hey!","time":"2023 07 29 10:07"}
-Master Message Recieved: {"from":"Aes","payload":"how\ndo\nyou\ndo?","time":"2023 07 29 10:07"}
-Master Message Recieved: {"from":"Aes","payload":"how\ndo\nyou\ndo?","time":"2023 07 29 10:12"}
-Master Message Recieved: {"from":"aes","payload":"how\ndo\nyou\ndo","time":"2023 07 29 10:13"}
-Master Message Recieved: {"from":"Aes","payload":"how\ndo\nyou\ndo","time":"2023 07 29 10:15"}
-Master Message Recieved: {"from":"Aes","payload":"How\ndo\nyou\ndo","time":"2023 07 29 10:21"}
-Master Message Recieved: {"from":"Aes","payload":"How\ndo\nyou\ndo?","time":"2023 07 29 10:24"}
-Master Message Recieved: {"from":"Aes","payload":"you are very smay","time":"2023 07 29 10:24"}
-Master Message Recieved: {"from":"Aes","payload":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","time":"2023 07 29 10:24"}
-Master Message Recieved: {"from":"Aes","payload":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasmaytacular","time":"2023 07 29 10:25"}
-Master Message Recieved: {"from":"Aes","payload":"how\ndo\nyou\ndo","time":"2023 07 29 10:35"}
-Master Message Recieved: {"from":"Aes","payload":"how\ndo\nyou\ndo","time":"2023 07 29 10:35"}
-Master Message Recieved: {"from":"Aes","payload":"howdy man","time":"2023 07 29 10:35"}
-Master Message Recieved: {"from":"Aes","payload":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaayou are so smay","time":"2023 07 29 10:35"}
-Master Message Recieved: {"from":"Aes","payload":"Hey!","time":"2023 07 29 10:47"}
-Master Message Recieved: {"from":"Aes","payload":"Hey!","time":"2023 07 29 10:47"}
-Master Message Recieved: {"from":"Aes","payload":"Hey!","time":"2023 07 29 10:49"}
-Master Message Recieved: {"from":"Aes","payload":"How are you","time":"2023 07 29 10:49"}
-Master Message Recieved: {"from":"Aes","payload":"How\ndo\nyou\ndo","time":"2023 07 29 10:49"}
-Master Message Recieved: {"from":"Aes","payload":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaayou are very smay","time":"2023 07 29 10:49"}
-Master Message Recieved: {"from":"Aes","payload":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasmayness is coool\nblep","time":"2023 07 29 10:50"}
-Master Message Recieved: {"from":"Aes","payload":"Hey!","time":"2023 07 29 10:51"}
-Master Message Recieved: {"from":"Aes","payload":"How\ndo\nyou\ndo","time":"2023 07 29 10:51"}
-Master Message Recieved: {"from":"Aes","payload":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasmay","time":"2023 07 29 10:51"}
-Master Message Recieved: {"from":"Aes","payload":"mememememe","time":"2023 07 29 10:52"}
-Master Message Recieved: {"from":"Aes","payload":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasmay","time":"2023 07 29 10:52"}
-Master Message Recieved: {"from":"Aes","payload":"how\ndo","time":"2023 07 29 10:52"}
-Master Message Recieved: {"from":"Aes","payload":"how\ndo\nyou\ndo","time":"2023 07 29 10:52"}
-Master Message Recieved: {"from":"Aes","payload":"Hey!","time":"2023 07 29 10:53"}
-Master Message Recieved: {"from":"Aes","payload":"How\ndo\nyou\ndo","time":"2023 07 29 10:53"}
-Master Message Recieved: {"from":"Aes","payload":"howdy!","time":"2023 07 29 10:54"}
-Master Message Recieved: {"from":"Aes","payload":"smay","time":"2023 07 29 10:54"}
-Master Message Recieved: {"from":"Aes","payload":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\nsmay","time":"2023 07 29 10:54"}
+Message Recieved: {"from":"Aeskyl","payload":"hey","time":"2023 08 07 11:57"}
+Message Recieved: {"from":"Aeskyl","payload":"hmmmmmmm","time":"2023 08 07 11:57"}
+Message Recieved: {"from":"Aeskyl","payload":"wut","time":"2023 08 07 11:57"}
+Message Recieved: {"from":"Aeskyl","payload":"wait","time":"2023 08 07 11:57"}
+Message Recieved: {"from":"Aeskyl","payload":"why does it terminate with \\n","time":"2023 08 07 11:57"}
+Message Recieved: {"from":"Aeskyl","payload":"or was that always the case","time":"2023 08 07 11:57"}
+Message Recieved: {"from":"Aeskyl","payload":"idk, it doesnt mind","time":"2023 08 07 11:57"}
+Message Recieved: {"from":"Aeskyl","payload":"hey\nhety\nhowdy","time":"2023 08 07 11:57"}
+Message Recieved: {"from":"Aeskyl","payload":"hi","time":"2023 08 07 12:05"}
+Message Recieved: {"from":"Aeskyl","payload":"coolio\nboolio","time":"2023 08 07 12:05"}
+Message Recieved: {"from":"Aeskyl","payload":"wah","time":"2023 08 07 12:07"}
+Message Recieved: {"from":"Aeskyl","payload":"wah","time":"2023 08 07 12:07"}
+Message Recieved: {"from":"","payload":"hey","time":"2023 08 07 12:13"}
+Message Recieved: {"from":"Aeskyl","payload":"hey","time":"2023 08 07 12:28"}
+Message Recieved: {"from":"Aeskyl","payload":"howdy","time":"2023 08 07 12:28"}
+Message Recieved: {"from":"Aeskyl","payload":"he","time":"2023 08 07 12:35"}
+Message Recieved: {"from":"","payload":"hey","time":"2023 08 07 12:57"}
+Message Recieved: {"from":"","payload":"WOOO","time":"2023 08 07 12:57"}
+Message Recieved: {"from":"","payload":"it work","time":"2023 08 07 12:57"}
