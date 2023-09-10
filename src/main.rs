@@ -86,7 +86,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                 for task in tasks {
                     if !task.0.is_finished() {
                         task.0.abort();
-                        println!("Connection from {} has been closed", task.1);
+                        println!("Closing connection with {}", task.1);
                     }
                 }
                 println!("Server shutting down");
