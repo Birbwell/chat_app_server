@@ -1,12 +1,14 @@
-use std::{fs::File, io::Write, net::SocketAddr, sync::Arc, time::Duration};
+#[cfg(debug_assertions)]
+use tokio::sync::Mutex;
+#[cfg(debug_assertions)]
+use std::{fs::File, io::Write};
+
+use std::{net::SocketAddr, sync::Arc, time::Duration};
 
 use tokio::{
     io::{AsyncReadExt, AsyncWriteExt},
     net::{TcpListener, TcpStream},
-    sync::{
-        mpsc::{channel, Receiver, Sender},
-        Mutex,
-    },
+    sync::mpsc::{channel, Receiver, Sender},
 };
 
 use openssl::pkey::Private;
