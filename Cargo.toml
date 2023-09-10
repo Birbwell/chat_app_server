@@ -9,9 +9,4 @@ edition = "2021"
 chrono = "0.4.26"
 crossterm = "0.27.0"
 openssl = { version = "0.10.56", features = ["v111"] }
-serde = { version = "1.0.175", features = ["derive"] }
-serde_json = "1.0.103"
 tokio = { version = "1.29.1", features = ["macros", "rt-multi-thread", "sync", "net", "io-util", "time"] }
-tui = "0.19.0"
-tui-textarea = "0.2.0"
-unicode-width = "0.1.10"
