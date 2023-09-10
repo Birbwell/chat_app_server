@@ -16,7 +16,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .append(true)
         .write(true)
         .create(true)
-        .open("Log.txt")?;
+        .open("latest.log")?;
     let listener = TcpListener::bind(IP).await?;
     println!("Listening on {IP}");
 
