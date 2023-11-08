@@ -8,5 +8,5 @@ edition = "2021"
 [dependencies]
 chrono = "0.4.26"
 crossterm = "0.27.0"
-openssl = { version = "0.10.56", features = ["v111"] }
+openssl = { version = "0.10.56", features = ["v111", "vendored"] }
 tokio = { version = "1.29.1", features = ["macros", "rt-multi-thread", "sync", "net", "io-util", "time"] }

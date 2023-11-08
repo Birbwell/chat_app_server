@@ -1,21 +1,22 @@
 #[cfg(debug_assertions)]
-use tokio::sync::Mutex;
-#[cfg(debug_assertions)]
 use std::{fs::File, io::Write};
+#[cfg(debug_assertions)]
+use tokio::sync::Mutex;
 
-use std::{net::SocketAddr, sync::Arc, time::Duration};
-
-use tokio::{
-    io::{AsyncReadExt, AsyncWriteExt},
-    net::{TcpListener, TcpStream},
-    sync::mpsc::{channel, Receiver, Sender},
+use {
+    crossterm::event::{self, Event, KeyCode, KeyEvent},
+    openssl::{
+        pkey::Private,
+        rsa::{Padding, Rsa},
+        symm::{encrypt, Cipher},
+    },
+    std::{net::SocketAddr, sync::Arc, time::Duration},
+    tokio::{
+        io::{AsyncReadExt, AsyncWriteExt},
+        net::{TcpListener, TcpStream},
+        sync::mpsc::{channel, Receiver, Sender},
+    },
 };
-
-use openssl::pkey::Private;
-use openssl::rsa::{Padding, Rsa};
-use openssl::symm::{encrypt, Cipher};
-
-use crossterm::event::{self, Event, KeyCode, KeyEvent};
 
 const IP: &str = "0.0.0.0:42530";
 const SYMM: usize = 32;
@@ -188,4 +189,28 @@ fn gen_rand_symm(prec: usize) -> Vec<u8> {
     let mut key = vec![0u8; prec];
     openssl::rand::rand_bytes(&mut key).unwrap();
     key
+}
+
+#[cfg(test)]
+mod tests {
+    use tokio::io::AsyncReadExt;
+
+    #[tokio::test]
+    async fn dev_tunnel_test() -> Result<(), Box<dyn std::error::Error>> {
+        let ip = super::IP;
+        let listener = tokio::net::TcpListener::bind(ip).await?;
+        println!("Listening on {ip}");
+
+        while let Ok((mut stream, addr)) = listener.accept().await {
+            println!("{addr:?}");
+            let mut buf = [0u8; 32];
+            while let Ok(1..) = stream.read(&mut buf).await {
+                let s = String::from_utf8_lossy(&buf);
+                print!("{s}");
+                buf = [0u8; 32];
+            }
+        }
+
+        Ok(())
+    }
 }
