@@ -128,6 +128,14 @@ async fn handle_connection(
                                 let mut msg = vec![0u8; msg_len];
                                 stream.read_exact(&mut msg).await.unwrap();
 
+                                #[cfg(debug_assertions)]
+                                {
+                                    let mut fl = f.lock().await;
+                                    let v = [typ_buf.as_slice(), &len_buf, &key, &msg_len_buf, &msg].concat();
+                                    let s = String::from_utf8_lossy(&v);
+                                    writeln!(fl, "{s}").unwrap();
+                                }
+
                                 tx.send([typ_buf.as_slice(), &len_buf, &key, &msg_len_buf, &msg].concat()).await.unwrap();
                             },
                             b"PUB" if first => {
@@ -172,10 +180,23 @@ async fn handle_connection(
                 #[cfg(debug_assertions)]
                 {
                     let mut fl = f.lock().await;
-                    for u in &msg {
-                        write!(fl, "{u:08b}").unwrap();
-                    }
-                    writeln!(fl).unwrap();
+                    let kl = u32::from_be_bytes([msg[3], msg[4], msg[5], msg[6]]) as usize;
+                    writeln!(fl, "KL: {kl}").unwrap();
+                    let key = &msg[7..7+kl];
+                    let mv = &msg[7+kl..7+kl+4];
+                    let ml = u32::from_be_bytes([mv[0], mv[1], mv[2], mv[3]]);
+                    writeln!(fl, "ML: {ml}").unwrap();
+
+                    let dec_key = {
+                        let mut t = [0u8; 2048];
+                        let len = sv_rsa.private_decrypt(&key, &mut t, Padding::PKCS1).unwrap();
+                        t[0..len].to_owned()
+                    };
+
+                    let out = openssl::symm::decrypt(ciph, &dec_key, None, &msg[7+kl+4..]).unwrap();
+
+                    let s = String::from_utf8_lossy(&out);
+                    writeln!(fl, "Decrypted message: {s}\n").unwrap();
                 }
                 stream.write_all(&msg).await.unwrap();
             }
