@@ -1,5 +1,5 @@
 use crate::prelude::Result;
-use crate::room::ROOMSLIST;
+use crate::room::{ROOMSLIST, Room};
 use serde_json::to_vec;
 use std::net::SocketAddr;
 use tokio::io::{AsyncReadExt, AsyncWriteExt};
@@ -15,9 +15,11 @@ async fn handle_connections(listener: TcpListener) -> Result<()> {
 
 async unsafe fn send_roomlist_get_roomchoice(mut stream: TcpStream, addr: SocketAddr) {
     let mut list = vec![];
-    if let Ok(roomlist) = ROOMSLIST.read() {
-        for room in &*roomlist {
-            list.push((room.get_id(), room.get_name()));
+    if let Ok(roomlist_o) = ROOMSLIST.read() {
+        if let Some(roomlist) = &*roomlist_o {
+            for (id, room) in roomlist {
+                list.push((*id, room.get_name()));
+            }
         }
     }
 
@@ -30,12 +32,28 @@ async unsafe fn send_roomlist_get_roomchoice(mut stream: TcpStream, addr: Socket
     let Ok(1..) = stream.read_exact(&mut buf).await else {
         panic!("Error reading header");
     };
-    if &buf != b"ID_" {
-        panic!("Unexpected header");
-    };
-    let Ok(choice_id) = stream.read_u64().await else {
-        panic!("Error reading choice id");
-    };
 
-    
+    match &buf {
+        b"ID_" => {
+            // handle choice id
+            let Ok(choice_id) = stream.read_u64().await else {
+                panic!("Error reading choice id");
+            };
+            if let Ok(roomlist_o) = ROOMSLIST.get_mut() {
+                if let Some(ref mut roomlist) = *roomlist_o {
+                    roomlist.entry(choice_id).and_modify(|f| f.add_user(stream));
+                }
+            }
+        },
+        b"NEW" => {
+            let Ok(str_len) = stream.read_u64().await else {
+                panic!("Error reading string length");
+            };
+            let mut str_buf = vec![0u8; str_len as usize];
+            stream.read(&mut str_buf).await.unwrap();
+            let room_name = String::from_utf8_lossy(&str_buf);
+            Room::new_room(stream, room_name.to_string());
+        },
+        _ => panic!()
+    }
 }
