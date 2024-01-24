@@ -1,19 +1,18 @@
 use crate::prelude::Result;
 use crate::room::{ROOMSLIST, Room};
 use serde_json::to_vec;
-use std::net::SocketAddr;
 use tokio::io::{AsyncReadExt, AsyncWriteExt};
 use tokio::net::{TcpListener, TcpStream};
 use tokio::spawn;
 
-async fn handle_connections(listener: TcpListener) -> Result<()> {
-    while let Ok((stream, addr)) = listener.accept().await {
-        spawn(unsafe { send_roomlist_get_roomchoice(stream, addr) });
+pub(crate) async fn handle_connections(listener: TcpListener) -> Result<()> {
+    while let Ok((stream, _)) = listener.accept().await {
+        spawn(unsafe { send_roomlist_get_roomchoice(stream) });
     }
     Ok(())
 }
 
-async unsafe fn send_roomlist_get_roomchoice(mut stream: TcpStream, addr: SocketAddr) {
+async unsafe fn send_roomlist_get_roomchoice(mut stream: TcpStream) {
     let mut list = vec![];
     if let Ok(roomlist_o) = ROOMSLIST.read() {
         if let Some(roomlist) = &*roomlist_o {

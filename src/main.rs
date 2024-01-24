@@ -1,5 +1,5 @@
+use crate::connection::handle_connections;
 use std::collections::HashMap;
-
 use room::ROOMSLIST;
 use tokio::net::TcpListener;
 use prelude::*;
@@ -14,8 +14,13 @@ const SYMM: usize = 32;
 #[tokio::main]
 async fn main() -> Result<()> {
     unsafe { setup() };
-    let mut listener = TcpListener::bind(IP).await?;
+    let Ok(listener) = TcpListener::bind(IP).await else {
+        return Err("Failed to bind to port!");
+    };
+
     // Create tasks to handle connections
+    let jh = tokio::spawn(handle_connections(listener));
+    
     // Create tasks to handle rooms
     Ok(())
 }
