@@ -10,7 +10,7 @@ const SYMM: usize = 32;
 
 #[tokio::main]
 async fn main() -> Result<()> {
-    // let mut listener = TcpListener::from(IP);
+    let mut listener = TcpListener::bind(IP).await?;
     // Create tasks to handle connections
     // Create tasks to handle rooms
     Ok(())
