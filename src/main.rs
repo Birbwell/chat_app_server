@@ -1,6 +1,6 @@
 use crate::connection::handle_connections;
 use std::collections::HashMap;
-use room::ROOMSLIST;
+use room::ROOMLIST;
 use tokio::net::TcpListener;
 use prelude::*;
 
@@ -27,7 +27,7 @@ async fn main() -> Result<()> {
 }
 
 unsafe fn setup() {
-    if let Ok(inner) = ROOMSLIST.get_mut() {
+    if let Ok(inner) = ROOMLIST.get_mut() {
         *inner = Some(HashMap::new())
     }
 }

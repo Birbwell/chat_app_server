@@ -1,5 +1,5 @@
 use crate::prelude::Result;
-use crate::room::{ROOMSLIST, Room};
+use crate::room::{ROOMLIST, Room};
 use serde_json::to_vec;
 use tokio::io::{AsyncReadExt, AsyncWriteExt};
 use tokio::net::{TcpListener, TcpStream};
@@ -14,7 +14,7 @@ pub(crate) async fn handle_connections(listener: TcpListener) -> Result<()> {
 
 async unsafe fn send_roomlist_get_roomchoice(mut stream: TcpStream) {
     let mut list = vec![];
-    if let Ok(roomlist_o) = ROOMSLIST.read() {
+    if let Ok(roomlist_o) = ROOMLIST.read() {
         if let Some(roomlist) = &*roomlist_o {
             for (id, room) in roomlist {
                 list.push((*id, room.get_name()));
@@ -38,7 +38,7 @@ async unsafe fn send_roomlist_get_roomchoice(mut stream: TcpStream) {
             let Ok(choice_id) = stream.read_u64().await else {
                 panic!("Error reading choice id");
             };
-            if let Ok(roomlist_o) = ROOMSLIST.get_mut() {
+            if let Ok(roomlist_o) = ROOMLIST.get_mut() {
                 if let Some(ref mut roomlist) = *roomlist_o {
                     roomlist.entry(choice_id).and_modify(|f| f.add_user(stream));
                 }
