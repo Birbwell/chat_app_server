@@ -6,7 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-chrono = "0.4.26"
+chrono = "0.4.32"
 crossterm = "0.27.0"
-openssl = { version = "0.10.56", features = ["v111", "vendored"] }
-tokio = { version = "1.29.1", features = ["macros", "rt-multi-thread", "sync", "net", "io-util", "time"] }
+openssl = { version = "0.10.63", features = ["v111"] }
+tokio = { version = "1.35.1", features = ["macros", "rt-multi-thread", "sync", "net", "io-util", "time"] }
