@@ -9,7 +9,6 @@ mod connection;
 mod room;
 
 const IP: &str = "0.0.0.0:42530";
-const SYMM: usize = 32;
 
 #[tokio::main]
 async fn main() -> Result<()> {
@@ -22,6 +21,8 @@ async fn main() -> Result<()> {
     let jh = tokio::spawn(handle_connections(listener));
     
     // Create tasks to handle rooms
+
+    jh.abort();
     Ok(())
 }
 
